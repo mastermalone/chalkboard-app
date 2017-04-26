@@ -1,0 +1,27 @@
+{
+  "name": "chalkboard-app",
+  "main": "index.js",
+  "homepage": "https://github.com/mastermalone/chalkboard-app",
+  "authors": [
+    "mastermalone <mastermalone@gmail.com>"
+  ],
+  "description": "Chalkboard app",
+  "keywords": [
+    "Teach",
+    "Kids",
+    "Programming"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs-babel": "^0.0.9",
+    "requirejs": "^2.3.3",
+    "text": "requirejs-text#^2.0.15"
+  }
+}
