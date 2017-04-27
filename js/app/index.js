@@ -8,6 +8,7 @@ define([
   'chalkboard',
   'es6', 
   'babel',
+  'text'
   ], 
   function app(chalkboard) {
   'use strict';
