@@ -25,8 +25,8 @@ define(['local-storage-service'], function controls(localStroageService) {
     
     var eraser = function eraser(e) {
       console.log('Erasing');
-      context.strokeStyle = configOptions.easerColor;
-      localStroageService.setLocalStorageValue('chalkcolor', configOptions.easerColor);
+      context.strokeStyle = configOptions.chalkboardColor;
+      localStroageService.setLocalStorageValue('chalkcolor', configOptions.chalkboardColor);
       console.log('Erasing');
     };
     
