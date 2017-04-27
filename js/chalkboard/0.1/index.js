@@ -32,7 +32,7 @@ define(['chalkboard-service', 'chalk'], function chalkboard(chalkboardService, c
         break;
         case 'mousemove':
         if (mouseDown === true) {
-           chalk.service.drawLine(e);
+           chalk.service.drawLine(e.target.ctx);
         }
         break;
       }
