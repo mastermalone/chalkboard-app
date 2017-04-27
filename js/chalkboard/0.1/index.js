@@ -1,12 +1,13 @@
 require.config({
   paths: {
-    'chalkboard-service': 'js/chalkboard/0.1/chalkboard-service/0.1/index-impl',
-    'chalk': 'js/chalk/0.1/index',
-    'controls': 'js/controls/0.1/index'
+   // 'chalkboard-service': 'js/chalkboard/0.1/chalkboard-service/0.1/index-impl',
+   // 'chalk': 'js/chalk/0.1/index',
+   // 'controls': 'js/controls/0.1/index'
   }
 });
 
-define(['chalkboard-service', 'chalk', 'controls'], function chalkboard(chalkboardService, chalk, controls) {
+//define(['chalkboard-service', 'chalk', 'controls'], function chalkboard(chalkboardService, chalk, controls) {
+define([], function chalkboard() {
   'use strict';
   //Set up DOM stuff for the chalkboard
   return (function chalkboard() {
@@ -35,18 +36,18 @@ define(['chalkboard-service', 'chalk', 'controls'], function chalkboard(chalkboa
         break;
         case 'mouseup':
         mouseDown = false;
-        chalk.service.beginPath(e.target.ctx);
+        //chalk.service.beginPath(e.target.ctx);
         break;
         case 'mousemove':
         if (mouseDown === true) {
-           chalk.service.drawLine({
+           /*chalk.service.drawLine({
              ctx: e.target.ctx,
              color:  getChalkColor(),
              canvasX: e.clientX,
              canvasY: e.canvasY,
              toX: (e.clientX - e.target.offsetLeft),
              toY: (e.clientY - e.target.offsetTop),
-           });
+           });*/
         }
         break;
       }
@@ -56,7 +57,7 @@ define(['chalkboard-service', 'chalk', 'controls'], function chalkboard(chalkboa
       var mainContent = document.getElementById('main-content');
       var canvas = document.createElement('canvas');
       var ctx = canvas.getContext('2d');
-      controls.getContextAndOptions(ctx, defaultOptions);
+      //controls.getContextAndOptions(ctx, defaultOptions);
       console.log('Adding Chalkboard to DOM');
       
       canvas.setAttribute('width', options.chalkboardWidth);
@@ -71,7 +72,7 @@ define(['chalkboard-service', 'chalk', 'controls'], function chalkboard(chalkboa
       canvas.addEventListener('mousemove', fireEvents, true);
       canvas.addEventListener('mouseup', fireEvents, true);
       mainContent.appendChild(canvas);
-      mainContent.appendChild(controls.build());
+      //mainContent.appendChild(controls.build());
     };
     
     var setup = function setup(confg) {
@@ -87,7 +88,7 @@ define(['chalkboard-service', 'chalk', 'controls'], function chalkboard(chalkboa
       }
       
       createChalkBoard(configOptions);
-      chalkboardService.initBoard();
+      //chalkboardService.initBoard();
     };
     
     return {
