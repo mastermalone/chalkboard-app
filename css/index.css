@@ -1,0 +1,36 @@
+body {
+	font-family: 'Arial';
+	background: #006e2e;
+	background: #8C6C51;
+	background: #73BFD1;
+}
+
+#main-content {
+	width:900px;
+	margin: 30px auto;
+}
+
+#controls {
+	overflow: hidden;
+	margin:10px 0px;
+	padding:0px;
+}
+
+#chalkboard {
+	border: solid 10px #ffffff;
+	box-shadow: 0px 0px 3px #666666;
+}
+
+#controls li{ 
+	list-style: none;
+	float: left;
+	display: inline-block;
+	padding: 5px 10px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #ffffff;
+	background: #ff0000;
+	border-radius: 2px; 
+	margin-right: 10px;
+	cursor: pointer;
+}
