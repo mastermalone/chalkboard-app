@@ -9,8 +9,7 @@ define(['chalk-service'], function chalk(chalkService) {
   
   return (function chalk() {
     var createChalk = function createChalk(ctx) {
-      console.log('Creating the chalk');
-      //DOM stuf to make chalk image
+      //DOM stuf to make chalk image if you want to
     };
     
     return {

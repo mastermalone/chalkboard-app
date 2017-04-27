@@ -11,6 +11,8 @@ define(['chalkboard-service', 'chalk', 'controls'], function chalkboard(chalkboa
   //Set up DOM stuff for the chalkboard
   return (function chalkboard() {
     var mouseDown = null;
+    
+    //Default Chalkboard Options
     var defaultOptions = {
       chalkboardColor: '#000000',
       chalkColor: '#ffffff',
@@ -19,6 +21,11 @@ define(['chalkboard-service', 'chalk', 'controls'], function chalkboard(chalkboa
       chalkboardLeft: 0,
       chalkboardWidth: 900,
       chalboardHeight: 600
+    };
+    
+    var getChalkColor = function getChalkColor() {
+      var cColor =  window.localStorage.chalkcolor !== undefined ? window.localStorage.chalkcolor : defaultOptions.chalkColor;
+      return cColor;
     };
     
     var fireEvents = function fireEvents(e) {
@@ -34,7 +41,7 @@ define(['chalkboard-service', 'chalk', 'controls'], function chalkboard(chalkboa
         if (mouseDown === true) {
            chalk.service.drawLine({
              ctx: e.target.ctx,
-             color: '#ffffff',
+             color:  getChalkColor(),
              canvasX: e.clientX,
              canvasY: e.canvasY,
              toX: (e.clientX - e.target.offsetLeft),
@@ -50,7 +57,7 @@ define(['chalkboard-service', 'chalk', 'controls'], function chalkboard(chalkboa
       var canvas = document.createElement('canvas');
       var ctx = canvas.getContext('2d');
       controls.getContextAndOptions(ctx, defaultOptions);
-      console.log('Adding Chalkboard to DOM', options.chalkboardColor);
+      console.log('Adding Chalkboard to DOM');
       
       canvas.setAttribute('width', options.chalkboardWidth);
       canvas.setAttribute('height', options.chalboardHeight);
@@ -71,8 +78,9 @@ define(['chalkboard-service', 'chalk', 'controls'], function chalkboard(chalkboa
       //Called by the app.init function
       var configOptions = {};
       
+      //If there is no custom configuration, use the defualt configuration
       if (typeof config !== 'object') {
-        console.log('You did not specify any options.  Using defaultOptions');
+        console.log('You did not specify any options.  Using default configuration options');
         configOptions = defaultOptions;
       }else {
         configOptions = confg;
